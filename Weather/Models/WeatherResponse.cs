@@ -1,11 +1,12 @@
-﻿using System;
-using System.Text.Json;
+﻿using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Weather.Models
 {
     public class WeatherResponse
-    {        
-        public Coord Coord { get; set; }
+    {
+        [JsonPropertyName("coord")]
+        public Geolocation Geo { get; set; }
         public Weather[] Weather { get; set; }
         public string Base { get; set; }
         public Main Main { get; set; }
