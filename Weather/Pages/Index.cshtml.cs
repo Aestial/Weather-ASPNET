@@ -23,16 +23,18 @@ namespace Weather.Pages
             _logger = logger;
             ResponseService = responseService;
         }
-
         public void OnGet()
         {
-            if(Request.Cookies["longitude"] != null && Request.Cookies["latitude"] != null)
+        }
+        public void OnPost()
+        {
+            if (Request.Cookies["longitude"] != null
+                && Request.Cookies["latitude"] != null)
             {
                 float lon = float.Parse(Request.Cookies["longitude"]);
                 float lat = float.Parse(Request.Cookies["latitude"]);
                 WeatherResponse = ResponseService.GetGeolocationResponse(lon, lat);
-            }
-            WeatherResponse = ResponseService.GetResponse();
-        }
+            }            
+        }   
     }
 }
