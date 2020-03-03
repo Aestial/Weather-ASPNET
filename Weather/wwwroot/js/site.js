@@ -3,12 +3,16 @@
 
 // Write your Javascript code.
 
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(useLocation);
-    }
-};
+navigator.geolocation.getCurrentPosition(positionSuccess, positionError)
 
-function useLocation(position) {
-    window.location.replace('?longitude=' + position.coords.longitude + '&latitude=' + position.coords.latitude);
-};
+function positionSuccess(geo) {
+    document.cookie = 'latitude=' + geo.coords.latitude;
+    document.cookie = 'longitude=' + geo.coords.longitude;
+    document.cookie = 'accuracy=' + geo.coords.accuracy;
+}
+
+function positionError(geo) {
+    document.cookie = 'latitude=; expires=Thu, 01 Jan 1970 00:00:00 UTC;';
+    document.cookie = 'longitude=; expires=Thu, 01 Jan 1970 00:00:00 UTC;';
+    document.cookie = 'accuracy=; expires=Thu, 01 Jan 1970 00:00:00 UTC;';
+}

@@ -1,19 +1,25 @@
 ﻿@page
-@using Weather.Components
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <!--p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p-->
+    <h1 class="display-5">Local Weather App</h1>
+    <p>Github <a href="https://github.com/Aestial/Weather-ASPNET">repo</a>.</p>
 </div>
-
-@(await Html.RenderComponentAsync<WeatherComponent>(RenderMode.ServerPrerendered))
-
-<div class="text-center btn">
-    <button id="locationButton" type="button" class="btn btn-default" onclick="getLocation()">Locate Me!</button>
+<div class="text-center">
+    <h3>@Model.WeatherResponse.Name</h3>
 </div>
-
-<script src="_framework/blazor.server.js"></script>
+<div class="text-center">
+    <h3>@Model.WeatherResponse.Sys.Country</h3>
+</div>
+<div class="text-center">
+    <h3>@Model.WeatherResponse.Weather[0].Main</h3>
+</div>
+<div class="text-center">
+    <h2>@Model.WeatherResponse.Main.Temp</h2>
+</div>
+<div class="text-center">
+    <h4>@Model.WeatherResponse.Weather[0].Description</h4>
+</div>

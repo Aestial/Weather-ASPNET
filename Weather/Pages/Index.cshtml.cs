@@ -26,6 +26,12 @@ namespace Weather.Pages
 
         public void OnGet()
         {
+            if(Request.Cookies["longitude"] != null && Request.Cookies["latitude"] != null)
+            {
+                float lon = float.Parse(Request.Cookies["longitude"]);
+                float lat = float.Parse(Request.Cookies["latitude"]);
+                WeatherResponse = ResponseService.GetGeolocationResponse(lon, lat);
+            }
             WeatherResponse = ResponseService.GetResponse();
         }
     }
