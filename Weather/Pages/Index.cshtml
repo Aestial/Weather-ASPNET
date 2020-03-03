@@ -12,5 +12,8 @@
 
 @(await Html.RenderComponentAsync<WeatherComponent>(RenderMode.ServerPrerendered))
 
+<div class="text-center btn">
+    <button id="locationButton" type="button" class="btn btn-default" onclick="getLocation()">Locate Me!</button>
+</div>
 
 <script src="_framework/blazor.server.js"></script>
