@@ -9,19 +9,39 @@ a.navbar-brand {
 
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+    color: #E2583C;
+}
+a:hover {
+    color: #A01F22;
+}
+
+.pb-3, .py-3 {
+    padding-top: 1.5rem !important;
+}
+
+.row {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #fff;
+    background-color: #E2583C;
+    border-color: #E2583C;
+}
+.btn-primary:hover {
+    background-color: #A78777;
+    border-color: #A78777;
+}
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.dropdown-toggle {
+    background-color: #A78777;
+    border-color: #A78777;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #fff;
+    background-color: #E5583C;
+    border-color: #E2583C;
 }
 
 /* Sticky footer styles
@@ -59,8 +79,9 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    background-color: #EAEAEA;
 }
 .footer {
   position: absolute;

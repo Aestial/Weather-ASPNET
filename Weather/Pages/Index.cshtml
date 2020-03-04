@@ -4,15 +4,14 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-5">Local Weather App</h1>
-    <p>Github <a href="https://github.com/Aestial/Weather-ASPNET">repo</a>.</p>
-</div>
+<!--div class="text-center">
+    <h3 class="display-5">Local Weather App</h3>
+</div-->
 
 @if (Model.WeatherResponse != null)
 {
     <div class="text-center">
-        <h3>@Model.WeatherResponse.Name, @Model.WeatherResponse.Sys.Country</h3>
+        <h2>@Model.WeatherResponse.Name, @Model.WeatherResponse.Sys.Country</h2>
     </div>
     <div class="text-center">
         <h3>@Model.WeatherResponse.Weather[0].Main</h3>
@@ -20,16 +19,18 @@
     <div class="text-center">
         <h2>@Math.Round(Model.WeatherResponse.Main.Temp, 0)º C</h2>
     </div>
-    <!--div class="text-center">
-        <h4>@Model.WeatherResponse.Weather[0].Description</h4>
-    </div-->
+    <div class="text-center">
+        <img src=@Model.WeatherResponse.Weather[0].IconURL
+             alt=@Model.WeatherResponse.Weather[0].Description
+             class="mx-auto d-block">
+    </div>
 }
 
 <form method="post">
     <div class="container">
         <div class="row">
             <div class="col text-center">
-                <button type="submit" id="locationButton" class="btn-outline-primary btn-lg">Locate Me!</button>
+                <button type="submit" id="locationButton" class="btn-primary btn-lg">Locate Me!</button>
             </div>
         </div>
     </div>

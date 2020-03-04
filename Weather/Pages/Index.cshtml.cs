@@ -25,8 +25,13 @@ namespace Weather.Pages
         }
         public void OnGet()
         {
+            GetResponse();
         }
         public void OnPost()
+        {
+            GetResponse();
+        }
+        private void GetResponse()
         {
             if (Request.Cookies["longitude"] != null
                 && Request.Cookies["latitude"] != null)
@@ -34,7 +39,7 @@ namespace Weather.Pages
                 float lon = float.Parse(Request.Cookies["longitude"]);
                 float lat = float.Parse(Request.Cookies["latitude"]);
                 WeatherResponse = ResponseService.GetGeolocationResponse(lon, lat);
-            }            
-        }   
+            }
+        }
     }
 }

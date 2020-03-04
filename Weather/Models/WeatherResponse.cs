@@ -19,10 +19,6 @@ namespace Weather.Models
         public string Name { get; set; }
         public int Cod { get; set; }
 
-        public override string ToString() => JsonSerializer.Serialize(this);
-
-        public WeatherResponse()
-        {
-        }
+        public override string ToString() => JsonSerializer.Serialize(this);        
     }
 }
